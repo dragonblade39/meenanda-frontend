@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import { FaIndustry } from "react-icons/fa";
+import { GiModernCity } from "react-icons/gi";
+import { MdEngineering } from "react-icons/md";
+import { FaDigitalOcean } from "react-icons/fa";
+import { MdHighQuality } from "react-icons/md";
 const Services = () => {
   useEffect(() => {
     AOS.init();
@@ -12,7 +16,7 @@ const Services = () => {
       <div
         className="container-fluid py-5"
         data-aos="fade-in-up"
-        data-aos-delay="100"
+        data-aos-delay="20"
       >
         <div className="container py-5">
           <div
@@ -33,11 +37,14 @@ const Services = () => {
             <div
               className="col-lg-4 col-md-6"
               data-aos="zoom-in"
-              data-aos-delay="300"
+              data-aos-delay="70"
             >
               <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                <div className="service-icon">
-                  <i className="fa fa-shield-alt text-white"></i>
+                <div
+                  className="service-icon text-white "
+                  style={{ fontSize: "28px" }}
+                >
+                  <FaIndustry />
                 </div>
                 <h4 className="mb-3">Innovative Infrastructure Solutions</h4>
                 <p className="m-0">
@@ -53,11 +60,14 @@ const Services = () => {
             <div
               className="col-lg-4 col-md-6"
               data-aos="zoom-in"
-              data-aos-delay="600"
+              data-aos-delay="120"
             >
               <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                <div className="service-icon">
-                  <i className="fa fa-chart-pie text-white"></i>
+                <div
+                  className="service-icon text-white"
+                  style={{ fontSize: "28px" }}
+                >
+                  <GiModernCity />
                 </div>
                 <h4 className="mb-3">Smart Cities Integration</h4>
                 <p className="m-0">
@@ -73,11 +83,14 @@ const Services = () => {
             <div
               className="col-lg-4 col-md-6"
               data-aos="zoom-in"
-              data-aos-delay="900"
+              data-aos-delay="170"
             >
               <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                <div className="service-icon">
-                  <i className="fa fa-code text-white"></i>
+                <div
+                  className="service-icon text-white"
+                  style={{ fontSize: "28px" }}
+                >
+                  <MdEngineering />
                 </div>
                 <h4 className="mb-3">Engineering Excellence in Construction</h4>
                 <p className="m-0">
@@ -93,11 +106,14 @@ const Services = () => {
             <div
               className="col-lg-4 col-md-6"
               data-aos="zoom-in"
-              data-aos-delay="300"
+              data-aos-delay="120"
             >
               <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                <div className="service-icon">
-                  <i className="fab fa-android text-white"></i>
+                <div
+                  className="service-icon text-white"
+                  style={{ fontSize: "28px" }}
+                >
+                  <FaDigitalOcean />
                 </div>
                 <h4 className="mb-3">
                   Digital Transformation for Infrastructure
@@ -115,11 +131,14 @@ const Services = () => {
             <div
               className="col-lg-4 col-md-6"
               data-aos="zoom-in"
-              data-aos-delay="600"
+              data-aos-delay="200"
             >
               <div className="service-item bg-light rounded d-flex flex-column align-items-center justify-content-center text-center">
-                <div className="service-icon">
-                  <i className="fa fa-search text-white"></i>
+                <div
+                  className="service-icon text-white"
+                  style={{ fontSize: "28px" }}
+                >
+                  <MdHighQuality />
                 </div>
                 <h4 className="mb-3">Sustainable Infrastructure Development</h4>
                 <p className="m-0">
@@ -135,7 +154,7 @@ const Services = () => {
             <div
               className="col-lg-4 col-md-6"
               data-aos="zoom-in"
-              data-aos-delay="900"
+              data-aos-delay="170"
             >
               <div
                 className="position-relative  rounded h-100 d-flex flex-column align-items-center justify-content-center text-center p-5"

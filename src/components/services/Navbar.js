@@ -19,12 +19,12 @@ function ServiceNavbar() {
   return (
     <div className="container-fluid position-relative p-0">
       <NavbarHeader />
-      <div className="item" data-aos="fade-up" data-aos-delay="600">
+      <div className="item" data-aos="fade-up" data-aos-delay="200">
         {/* Rest of the code remains the same */}
         <img
           className="w-100"
           style={{ height: "40vh" }}
-          src="https://cdn.pixabay.com/photo/2014/12/27/14/37/living-room-581073_1280.jpg"
+          src="https://cdn.pixabay.com/photo/2015/10/20/18/57/furniture-998265_1280.jpg"
           alt="Image"
         />
         <div className="carousel-caption d-flex flex-column align-items-center justify-content-center">

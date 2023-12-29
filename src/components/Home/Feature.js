@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
+import { MdOutlineDesignServices } from "react-icons/md";
+import { FaEyeLowVision } from "react-icons/fa6";
+import { GrTechnology } from "react-icons/gr";
+import { MdConstruction } from "react-icons/md";
 const Feature = () => {
   useEffect(() => {
     AOS.init();
@@ -12,7 +15,7 @@ const Feature = () => {
       <div
         className="container-fluid py-5"
         data-aos="fade-in-up"
-        data-aos-delay="100"
+        data-aos-delay="25"
       >
         <div className="container py-5">
           <div
@@ -30,16 +33,18 @@ const Feature = () => {
           <div className="row g-5">
             <div className="col-lg-4">
               <div className="row g-5">
-                <div className="col-12" data-aos="zoom-in" data-aos-delay="200">
+                <div className="col-12" data-aos="zoom-in" data-aos-delay="75">
                   <div
                     className=" rounded d-flex align-items-center justify-content-center mb-3"
                     style={{
                       width: "60px",
                       height: "60px",
                       backgroundColor: "var(--primary)",
+                      color: "#fff",
+                      fontSize: "28px",
                     }}
                   >
-                    <i className="fa-solid fa-browser text-white"></i>
+                    <MdOutlineDesignServices />
                   </div>
                   <h4>Setting the Standard in Infratech Excellence</h4>
                   <p className="mb-0">
@@ -47,16 +52,18 @@ const Feature = () => {
                     industry-leading expertise.
                   </p>
                 </div>
-                <div className="col-12" data-aos="zoom-in" data-aos-delay="600">
+                <div className="col-12" data-aos="zoom-in" data-aos-delay="150">
                   <div
                     className=" rounded d-flex align-items-center justify-content-center mb-3"
                     style={{
                       width: "60px",
                       height: "60px",
                       backgroundColor: "var(--primary)",
+                      color: "#fff",
+                      fontSize: "28px",
                     }}
                   >
-                    <i className="fa fa-money-bill text-white"></i>
+                    <GrTechnology />
                   </div>
                   <h4>Futuristic Technology, Real-world Impact</h4>
                   <p className="mb-0">
@@ -70,7 +77,7 @@ const Feature = () => {
             <div
               className="col-lg-4"
               data-aos="zoom-in"
-              data-aos-delay="900"
+              data-aos-delay="250"
               style={{ minHeight: "300px" }}
             >
               <div className="position-relative h-100">
@@ -86,16 +93,18 @@ const Feature = () => {
             </div>
             <div className="col-lg-4">
               <div className="row g-5">
-                <div className="col-12" data-aos="zoom-in" data-aos-delay="400">
+                <div className="col-12" data-aos="zoom-in" data-aos-delay="150">
                   <div
                     className="rounded d-flex align-items-center justify-content-center mb-3"
                     style={{
                       width: "60px",
                       height: "60px",
                       backgroundColor: "var(--primary)",
+                      color: "#fff",
+                      fontSize: "28px",
                     }}
                   >
-                    <i className="fa fa-users-cog text-white"></i>
+                    <FaEyeLowVision />
                   </div>
                   <h4>Your Vision, Our Commitment</h4>
                   <p className="mb-0">
@@ -104,16 +113,18 @@ const Feature = () => {
                     sustainability, and reliability.
                   </p>
                 </div>
-                <div className="col-12" data-aos="zoom-in" data-aos-delay="800">
+                <div className="col-12" data-aos="zoom-in" data-aos-delay="200">
                   <div
                     className="rounded d-flex align-items-center justify-content-center mb-3"
                     style={{
                       width: "60px",
                       height: "60px",
                       backgroundColor: "var(--primary)",
+                      color: "#fff",
+                      fontSize: "28px",
                     }}
                   >
-                    <i className="fa fa-phone-alt text-white"></i>
+                    <MdConstruction />
                   </div>
                   <h4>Beyond Construction, Crafting Legacies</h4>
                   <p className="mb-0">

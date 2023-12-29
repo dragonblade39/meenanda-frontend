@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import image from "../../img/about.jpg";
 
 const About = () => {
   useEffect(() => {
@@ -124,7 +125,7 @@ const About = () => {
                   class="position-absolute w-100 h-100 rounded"
                   dat-aos="fade-up"
                   data-aos-delay="450"
-                  src="https://cdn.pixabay.com/photo/2016/11/08/05/11/children-1807511_1280.jpg"
+                  src={image}
                   style={{ objectFit: "cover" }}
                 />
               </div>

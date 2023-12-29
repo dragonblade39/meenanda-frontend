@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPhoneAlt,
-  faEnvelopeOpen,
-  faMapMarkerAlt,
-} from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
-
+import ReactLoading from "react-loading";
 import Modal1 from "../Modal/modal";
+import Modal2 from "../Modal/modal1";
+
 const Quote = () => {
   useEffect(() => {
     AOS.init();
   }, []);
 
   const [modalShow, setModalShow] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [modalShow1, setModalShow1] = useState(false);
   const [message, setMessage] = useState({
     name: "",
     email: "",
@@ -23,6 +21,11 @@ const Quote = () => {
     message: "",
   });
   const [modal, setModal] = useState({
+    title: "",
+    heading: "",
+    content: "",
+  });
+  const [modal1, setModal1] = useState({
     title: "",
     heading: "",
     content: "",
@@ -36,14 +39,50 @@ const Quote = () => {
   };
 
   const handleSubmit = async (event) => {
+    setLoading(true);
     event.preventDefault();
-    console.log(message);
+
+    // Validation checks
+    if (message.subject.split(" ").length < 4) {
+      setModalShow1(true);
+      setModal1({
+        content: "Subject should have at least 4 words.",
+        title: "Validation Error",
+        heading: "Error",
+      });
+      setLoading(false);
+      return;
+    }
+
+    if (!/^[a-zA-Z\s]*$/.test(message.name)) {
+      setModalShow1(true);
+      setModal1({
+        content: "Name should not contain numbers or special characters.",
+        title: "Validation Error",
+        heading: "Error",
+      });
+      setLoading(false);
+      return;
+    }
+
+    if (message.message.split(" ").length < 10) {
+      setModalShow1(true);
+      setModal1({
+        content: "Message should have at least 10 words.",
+        title: "Validation Error",
+        heading: "Error",
+      });
+      setLoading(false);
+      return;
+    }
 
     try {
       const response = await axios.post(
         "https://meenanda-backend.onrender.com/data/create",
         message
       );
+
+      console.log("API Response:", response);
 
       if (response.status === 200) {
         setModalShow(true);
@@ -52,23 +91,39 @@ const Quote = () => {
           title: "Message sent successfully",
           heading: "Success",
         });
+        setLoading(false);
+        setMessage({ name: "", email: "", subject: "", message: "" });
       } else if (response.status === 400) {
-        setModalShow(true);
-        setModal({
+        setModalShow1(true);
+        setModal1({
           content: response.data.error,
           title: "Query sending was unsuccessful",
           heading: "Error",
         });
+        setLoading(false);
+        setMessage({ name: "", email: "", subject: "", message: "" });
       } else {
-        setModalShow(true);
-        setModal({
+        setModalShow1(true);
+        setModal1({
           content: response.data.error,
           title: "Query sending was unsuccessful",
           heading: "Error",
         });
+        setLoading(false);
+        setMessage({ name: "", email: "", subject: "", message: "" });
       }
     } catch (error) {
       console.error("Error:", error);
+      setModalShow1(true);
+      setModal1({
+        content: "An error occurred while sending the message.",
+        title: "Error",
+        heading: "Error",
+      });
+      setLoading(false);
+      setMessage({ name: "", email: "", subject: "", message: "" });
+    } finally {
+      console.log("Setting loading to false");
     }
   };
 
@@ -77,7 +132,7 @@ const Quote = () => {
       <div
         className="container-fluid py-5"
         data-aos="fade-in-up"
-        data-aos-delay="100"
+        data-aos-delay="20"
       >
         <div className="container py-5">
           <div className="row g-5">
@@ -97,7 +152,7 @@ const Quote = () => {
                 <div
                   className="col-sm-6"
                   data-aos="zoom-in"
-                  data-aos-delay="200"
+                  data-aos-delay="70"
                 >
                   <h5 className="mb-4">
                     <i
@@ -110,7 +165,7 @@ const Quote = () => {
                 <div
                   className="col-sm-6"
                   data-aos="zoom-in"
-                  data-aos-delay="400"
+                  data-aos-delay="120"
                 >
                   <h5 className="mb-4">
                     <i
@@ -131,7 +186,7 @@ const Quote = () => {
               <div
                 className="d-flex align-items-center mt-2"
                 data-aos="zoom-in"
-                data-aos-delay="600"
+                data-aos-delay="150"
               >
                 <div
                   className="d-flex align-items-center justify-content-center rounded"
@@ -155,7 +210,7 @@ const Quote = () => {
               <div
                 className="rounded h-100 d-flex align-items-center p-5"
                 data-aos="zoom-in"
-                data-aos-delay="900"
+                data-aos-delay="170"
                 style={{ backgroundColor: "var(--primary)" }}
               >
                 <form onSubmit={handleSubmit}>
@@ -226,6 +281,36 @@ const Quote = () => {
             </div>
           </div>
         </div>
+        {loading && (
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              zIndex: "999",
+              color: "#e5508b",
+            }}
+          >
+            <ReactLoading
+              type="spinningBubbles"
+              color="#e5508b"
+              style={{
+                width: "70px",
+                height: "70px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                stroke: "#e5508b",
+              }}
+            />
+          </div>
+        )}
         {modalShow && (
           <Modal1
             content={modal.content}
@@ -233,6 +318,15 @@ const Quote = () => {
             heading={modal.heading}
             show={modalShow}
             onHide={() => setModalShow(false)}
+          />
+        )}
+        {modalShow1 && (
+          <Modal2
+            content={modal1.content}
+            title={modal1.title}
+            heading={modal1.heading}
+            show={modalShow1}
+            onHide={() => setModalShow1(false)}
           />
         )}
       </div>

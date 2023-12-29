@@ -1,7 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-function Modal1(props) {
+function Modal2(props) {
   return (
     <Modal
       {...props}
@@ -14,9 +14,7 @@ function Modal1(props) {
         style={{ backgroundColor: "var(--light-pink)" }}
       >
         <Modal.Title id="contained-modal-title-vcenter">
-          <span
-            style={{ color: "#007C02", fontWeight: "800", fontSize: "30px" }}
-          >
+          <span style={{ color: "red", fontWeight: "800", fontSize: "30px" }}>
             {props.heading}
           </span>
         </Modal.Title>
@@ -43,4 +41,4 @@ function Modal1(props) {
   );
 }
 
-export default Modal1;
+export default Modal2;

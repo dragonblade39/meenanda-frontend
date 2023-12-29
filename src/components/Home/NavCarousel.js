@@ -70,7 +70,7 @@ const NavCarousel = () => {
         </div>
 
         {/* Item 2 */}
-        <div className="item" data-aos="fade-up" data-aos-delay="400">
+        <div className="item" data-aos="fade-up" data-aos-delay="200">
           {/* Rest of the code remains the same */}
           <img
             className="w-100"
@@ -150,7 +150,7 @@ const NavCarousel = () => {
           </div>
         </div>
       </OwlCarousel>
-
+      {/* 
       <button
         className="carousel-control-prev"
         type="button"
@@ -168,7 +168,7 @@ const NavCarousel = () => {
       >
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
         <span className="visually-hidden">Next</span>
-      </button>
+      </button> */}
     </div>
   );
 };
