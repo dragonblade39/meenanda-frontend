@@ -1,6 +1,45 @@
 import React from "react";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import TeamStart from "./TeamStart";
 
-function Footer() {
+function Footer(teamRef) {
+  const navigate = useNavigate();
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const handleLinkClick = (to) => {
+    scrollToTop();
+    navigate(to);
+  };
+
+  const handleLinkClick1 = (to) => {
+    const targetElement = document.getElementById(to.substring(1));
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const location = () => {
+    window.open(
+      "https://www.google.com/maps/place/MEENANDA+INFRATECH/@13.0957266,77.5381694,17z/data=!3m1!4b1!4m6!3m5!1s0x3bae238a3443c19d:0x1a17b88931d0bb3b!8m2!3d13.0957266!4d77.5407443!16s%2Fg%2F11j37jd1s5?entry=ttu",
+      "_blank"
+    );
+  };
+  const email = () => {
+    window.location.href = "mailto:meenandainfratech@gmail.com";
+  };
+  const phone1 = () => {
+    window.location.href = "tel:+917295803413";
+  };
+  const phone2 = () => {
+    window.location.href = "tel:+919986943389";
+  };
+
   return (
     <>
       <div
@@ -14,12 +53,12 @@ function Footer() {
                 className="d-flex flex-column align-items-center justify-content-center text-center h-10 p-4"
                 style={{ background: "#e5508b" }}
               >
-                <a href="/" className="navbar-brand">
+                <RouterLink href="/" className="navbar-brand">
                   <h1 className="m-0 text-white"> Meenanda </h1>
                   <h1 className="m-0 text-white">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Infratech{" "}
                   </h1>
-                </a>
+                </RouterLink>
                 <p className="mt-3 mb-4">
                   We are more than just interior designers, we are storytellers.
                   Our journey began with a simple mission - to create spaces
@@ -41,8 +80,10 @@ function Footer() {
                       paddingRight: "30px",
                       borderRadius: "5px",
                     }}
+                    onClick={() => handleLinkClick("/contact")}
                   >
-                    <i class="fa-solid fa-paper-plane"></i> CONTACT US
+                    CONTACT US&nbsp;&nbsp;
+                    <i class="fa-solid fa-paper-plane"></i>
                   </button>
                 </form>
                 <br />
@@ -59,7 +100,11 @@ function Footer() {
                       class="bi bi-geo-alt  me-2"
                       style={{ color: "var(--primary)" }}
                     ></i>
-                    <p class="mb-0">
+                    <p
+                      class="mb-0"
+                      style={{ cursor: "pointer" }}
+                      onClick={location}
+                    >
                       #2/1, 1st Cross, 1st Main, Nethaji Layout, Vaderahalli,
                       Vidyaranyapura, Bengaluru - 560097
                     </p>
@@ -69,7 +114,13 @@ function Footer() {
                       class="bi bi-envelope-open  me-2"
                       style={{ color: "var(--primary)" }}
                     ></i>
-                    <p class="mb-0">meenandainfratech@gmail.com</p>
+                    <p
+                      onClick={email}
+                      style={{ cursor: "pointer" }}
+                      class="mb-0"
+                    >
+                      meenandainfratech@gmail.com
+                    </p>
                   </div>
                   <div class="d-flex mb-2">
                     <i
@@ -80,44 +131,56 @@ function Footer() {
                       class="bi bi-whatsapp  me-2"
                       style={{ color: "var(--primary)" }}
                     ></i>
-                    <p class="mb-0">+91 99869 43389</p>
+                    <p
+                      onClick={phone1}
+                      style={{ cursor: "pointer" }}
+                      class="mb-0"
+                    >
+                      +91 99869 43389
+                    </p>
                   </div>
                   <div class="d-flex mb-2">
                     <i
                       class="bi bi-telephone  me-2"
                       style={{ color: "var(--primary)" }}
                     ></i>
-                    <p class="mb-0">+91 72958 03413</p>
+                    <p
+                      onClick={phone2}
+                      style={{ cursor: "pointer" }}
+                      class="mb-0"
+                    >
+                      +91 72958 03413
+                    </p>
                   </div>
                   <div class="d-flex mt-4">
-                    <a
+                    <RouterLink
                       class="btn  btn-square me-2"
                       href="#"
                       style={{ backgroundColor: "var(--primary)" }}
                     >
                       <i class="fab fa-twitter fw-normal text-white"></i>
-                    </a>
-                    <a
+                    </RouterLink>
+                    <RouterLink
                       class="btn  btn-square me-2"
                       href="#"
                       style={{ backgroundColor: "var(--primary)" }}
                     >
                       <i class="fab fa-facebook-f fw-normal text-white"></i>
-                    </a>
-                    <a
+                    </RouterLink>
+                    <RouterLink
                       class="btn  btn-square me-2"
                       href="#"
                       style={{ backgroundColor: "var(--primary)" }}
                     >
                       <i class="fab fa-linkedin-in fw-normal text-white"></i>
-                    </a>
-                    <a
+                    </RouterLink>
+                    <RouterLink
                       class="btn  btn-square"
                       href="#"
                       style={{ backgroundColor: "var(--primary)" }}
                     >
                       <i class="fab fa-instagram fw-normal text-white"></i>
-                    </a>
+                    </RouterLink>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
@@ -125,41 +188,63 @@ function Footer() {
                     <h3 class="text-light mb-0">Quick Links</h3>
                   </div>
                   <div class="link-animated d-flex flex-column justify-content-start">
-                    <a class="text-light mb-2" href="#">
+                    <RouterLink
+                      to="/"
+                      class="text-light mb-2"
+                      onClick={() => handleLinkClick("/")}
+                    >
                       <i
                         class="bi bi-arrow-right  me-2"
                         style={{ color: "var(--primary)" }}
                       ></i>
                       Home
-                    </a>
-                    <a class="text-light mb-2" href="#">
+                    </RouterLink>
+                    <RouterLink
+                      to="/about"
+                      class="text-light mb-2"
+                      onClick={() => handleLinkClick("/about")}
+                    >
                       <i
                         class="bi bi-arrow-right  me-2"
                         style={{ color: "var(--primary)" }}
                       ></i>
                       About Us
-                    </a>
-                    <a class="text-light mb-2" href="#">
+                    </RouterLink>
+                    <RouterLink
+                      to="/service"
+                      class="text-light mb-2"
+                      onClick={() => handleLinkClick("/service")}
+                    >
                       <i
                         class="bi bi-arrow-right  me-2"
                         style={{ color: "var(--primary)" }}
                       ></i>
                       Our Services
-                    </a>
-                    <a class="text-light mb-2" href="#">
+                    </RouterLink>
+                    <RouterLink
+                      to="/about#team"
+                      class="text-light mb-2"
+                      onClick={() => {
+                        handleLinkClick1("/about#team");
+                      }}
+                    >
                       <i
                         class="bi bi-arrow-right  me-2"
                         style={{ color: "var(--primary)" }}
                       ></i>
                       Meet The Team
-                    </a>
-                    <a class="text-light" href="#">
+                    </RouterLink>
+                    <RouterLink
+                      to="/contact"
+                      class="text-light"
+                      onClick={() => handleLinkClick("/contact")}
+                    >
                       <i
                         class="bi bi-arrow-right  me-2"
                         style={{ color: "var(--primary)" }}
                       ></i>
                       Contact Us
-                    </a>
+                    </RouterLink>
                   </div>
                 </div>
                 <div class="col-lg-4 col-md-12 pt-0 pt-lg-5 mb-5">
@@ -167,41 +252,63 @@ function Footer() {
                     <h3 class="text-light mb-0">Popular Links</h3>
                   </div>
                   <div class="link-animated d-flex flex-column justify-content-start">
-                    <a class="text-light mb-2" href="#">
+                    <RouterLink
+                      to="/"
+                      class="text-light mb-2"
+                      onClick={() => handleLinkClick("/")}
+                    >
                       <i
                         class="bi bi-arrow-right  me-2"
                         style={{ color: "var(--primary)" }}
                       ></i>
                       Home
-                    </a>
-                    <a class="text-light mb-2" href="#">
+                    </RouterLink>
+                    <RouterLink
+                      to="/about"
+                      class="text-light mb-2"
+                      onClick={() => handleLinkClick("/about")}
+                    >
                       <i
                         class="bi bi-arrow-right  me-2"
                         style={{ color: "var(--primary)" }}
                       ></i>
                       About Us
-                    </a>
-                    <a class="text-light mb-2" href="#">
+                    </RouterLink>
+                    <RouterLink
+                      to="/service"
+                      class="text-light mb-2"
+                      onClick={() => handleLinkClick("/service")}
+                    >
                       <i
                         class="bi bi-arrow-right  me-2"
                         style={{ color: "var(--primary)" }}
                       ></i>
                       Our Services
-                    </a>
-                    <a class="text-light mb-2" href="#">
+                    </RouterLink>
+                    <RouterLink
+                      to="/about#team"
+                      class="text-light mb-2"
+                      onClick={() => {
+                        handleLinkClick1("/about#team");
+                      }}
+                    >
                       <i
                         class="bi bi-arrow-right  me-2"
                         style={{ color: "var(--primary)" }}
                       ></i>
                       Meet The Team
-                    </a>
-                    <a class="text-light" href="#">
+                    </RouterLink>
+                    <RouterLink
+                      to="/contact"
+                      class="text-light"
+                      onClick={() => handleLinkClick("/contact")}
+                    >
                       <i
                         class="bi bi-arrow-right  me-2"
                         style={{ color: "var(--primary)" }}
                       ></i>
                       Contact Us
-                    </a>
+                    </RouterLink>
                   </div>
                 </div>
               </div>
@@ -222,14 +329,14 @@ function Footer() {
               >
                 <p className="mb-0">
                   &copy;{" "}
-                  <a className="text-white border-bottom" href="/">
+                  <RouterLink className="text-white border-bottom" href="/">
                     Meenanda Infratech
-                  </a>
+                  </RouterLink>
                   .&nbsp;&nbsp; All Rights Reserved.
-                  <a
+                  <RouterLink
                     className="text-white border-bottom"
                     href="https://htmlcodex.com"
-                  ></a>
+                  ></RouterLink>
                 </p>
               </div>
             </div>

@@ -158,7 +158,10 @@ function ContactScreen() {
                     backgroundColor: "var(--primary",
                   }}
                 >
-                  <FontAwesomeIcon icon={faPhoneAlt} className="text-white" />
+                  <FontAwesomeIcon
+                    icon={faPhoneAlt}
+                    className="text-white rotate-icon"
+                  />
                 </div>
                 <div className="ps-4">
                   <h5 className="mb-2">Call to ask any question</h5>

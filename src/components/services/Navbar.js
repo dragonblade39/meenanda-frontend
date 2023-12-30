@@ -23,7 +23,7 @@ function ServiceNavbar() {
         {/* Rest of the code remains the same */}
         <img
           className="w-100"
-          style={{ height: "40vh" }}
+          style={{ height: "50vh" }}
           src="https://cdn.pixabay.com/photo/2015/10/20/18/57/furniture-998265_1280.jpg"
           alt="Image"
         />

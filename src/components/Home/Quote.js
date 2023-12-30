@@ -133,6 +133,8 @@ const Quote = () => {
         className="container-fluid py-5"
         data-aos="fade-in-up"
         data-aos-delay="20"
+        id="quote"
+        name="quote"
       >
         <div className="container py-5">
           <div className="row g-5">

@@ -47,7 +47,7 @@ function TopBar() {
               <i class="fa fa-phone-alt me-2 rotate-icon"></i>
               <i
                 class="fa fa-brands fa-whatsapp me-2"
-                style={{ fontSize: "15px", fontWeight: "500" }}
+                style={{ fontSize: "17px", fontWeight: "bold" }}
               ></i>{" "}
               +91 99869 43389
             </small>

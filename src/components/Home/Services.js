@@ -163,6 +163,7 @@ const Services = () => {
                 <h3 className="text-white mb-3">Call Us For Quote</h3>
                 <p className="text-white mb-3">Feel free to contact us.</p>
                 <h2 className="text-white mb-0"> +91 99869 43389</h2>
+                <h2 className="text-white mb-0">+91 72958 03413</h2>
               </div>
             </div>
           </div>

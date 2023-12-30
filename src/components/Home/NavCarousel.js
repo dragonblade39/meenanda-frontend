@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useEffect } from "react";
 
 import OwlCarousel from "react-owl-carousel";
@@ -7,11 +8,32 @@ import "aos/dist/aos.css";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import NavbarHeader from "./Navbar";
+import { useNavigate } from "react-router-dom";
 
 const NavCarousel = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const handleLinkClick = (to) => {
+    scrollToTop();
+    navigate(to);
+  };
+
+  const handleLinkClick1 = (to) => {
+    const targetElement = document.getElementById(to.substring(1));
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const options = {
     items: 1,
@@ -34,8 +56,7 @@ const NavCarousel = () => {
           {/* Rest of the code remains the same */}
 
           <img
-            className="w-100"
-            style={{ height: "100vh" }}
+            className="w-100 height"
             src="https://cdn.pixabay.com/photo/2016/11/18/17/20/living-room-1835923_1280.jpg"
             alt="Image"
           />
@@ -48,18 +69,20 @@ const NavCarousel = () => {
                 Building Tomorrow's World, Today
               </h1>
               <a
-                href="quote.html"
+                href="#quote"
                 className="btn text-white py-md-3 px-md-5 me-3 animated slideInLeft"
                 style={{
                   backgroundColor: "var(--primary",
                   color: "#fff",
                   borderRadius: "5px",
                 }}
+                onClick={() => handleLinkClick("#quote")}
               >
                 Free Quote
               </a>
               <a
-                href=""
+                onClick={() => handleLinkClick("/contact")}
+                href="/contact"
                 className="btn btn-outline-light py-md-3 px-md-5 animated slideInRight"
                 style={{ borderRadius: "5px" }}
               >
@@ -73,8 +96,7 @@ const NavCarousel = () => {
         <div className="item" data-aos="fade-up" data-aos-delay="200">
           {/* Rest of the code remains the same */}
           <img
-            className="w-100"
-            style={{ height: "100vh" }}
+            className="w-100 height"
             src="https://cdn.pixabay.com/photo/2017/01/07/17/48/interior-1961070_1280.jpg"
             alt="Image"
           />
@@ -87,18 +109,20 @@ const NavCarousel = () => {
                 Innovating Infrastructure for a Sustainable Tomorrow
               </h1>
               <a
-                href="quote.html"
+                href="#quote"
                 className="btn text-white py-md-3 px-md-5 me-3 animated slideInLeft"
                 style={{
                   backgroundColor: "var(--primary)",
                   color: "#fff",
                   borderRadius: "5px",
                 }}
+                onClick={() => handleLinkClick("#quote")}
               >
                 Free Quote
               </a>
               <a
-                href=""
+                onClick={() => handleLinkClick("/contact")}
+                href="/contact"
                 className="btn btn-outline-light py-md-3 px-md-5 animated slideInRight"
                 style={{ borderRadius: "5px" }}
               >
@@ -112,8 +136,7 @@ const NavCarousel = () => {
         <div className="item" data-aos="fade-up" data-aos-delay="600">
           {/* Rest of the code remains the same */}
           <img
-            className="w-100"
-            style={{ height: "100vh" }}
+            className="w-100 height"
             src="https://cdn.pixabay.com/photo/2014/12/27/14/37/living-room-581073_1280.jpg"
             alt="Image"
           />
@@ -129,18 +152,20 @@ const NavCarousel = () => {
                 Where Technology Meets Infrastructure Excellence
               </h1>
               <a
-                href="quote.html"
+                href="#quote"
                 className="btn py-md-3 text-white px-md-5 me-3 animated slideInLeft"
                 style={{
                   backgroundColor: "var(--primary",
                   color: "#fff",
                   borderRadius: "5px",
                 }}
+                onClick={() => handleLinkClick("#quote")}
               >
                 Free Quote
               </a>
               <a
-                href=""
+                onClick={() => handleLinkClick("/contact")}
+                href="/contact"
                 className="btn btn-outline-light py-md-3 px-md-5 animated slideInRight"
                 style={{ borderRadius: "5px" }}
               >
@@ -150,25 +175,6 @@ const NavCarousel = () => {
           </div>
         </div>
       </OwlCarousel>
-      {/* 
-      <button
-        className="carousel-control-prev"
-        type="button"
-        data-bs-target=".owl-carousel"
-        data-bs-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button
-        className="carousel-control-next"
-        type="button"
-        data-bs-target=".owl-carousel"
-        data-bs-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="visually-hidden">Next</span>
-      </button> */}
     </div>
   );
 };

@@ -23,7 +23,7 @@ function ContactNavbar() {
         {/* Rest of the code remains the same */}
         <img
           className="w-100"
-          style={{ height: "40vh" }}
+          style={{ height: "50vh" }}
           src="https://cdn.pixabay.com/photo/2017/08/02/01/01/living-room-2569325_1280.jpg"
           alt="Image"
         />

@@ -106,7 +106,7 @@ const About = () => {
                 </div>
               </div>
               <a
-                href="quote.html"
+                href="#quote"
                 class="btn py-3 px-5 mt-3 "
                 data-aos="fade-up"
                 data-aos-delay="450"

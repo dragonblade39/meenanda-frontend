@@ -534,3 +534,31 @@ h6,
   ::placeholder {
     color: #000; /* Black color */
   }
+
+  .height{
+    height:100vh;
+  }
+  @media (max-width: 992px){
+    .height{
+        height:90vh;
+    }
+  }
+  @media (max-width:720px){
+    .height{
+        height:70vh;
+    }
+    .imageabout{
+        height:70% !important;
+    }
+    .font{
+    font-size: 25px;
+    }
+  
+  }
+  .imageabout{
+    height:100% ;
+}
+
+
+
+  
